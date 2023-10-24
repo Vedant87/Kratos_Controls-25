@@ -1,0 +1,37 @@
+<launch>
+
+  <node pkg="nodelet" type="nodelet" name="nodelet_manager" args="manager" output="screen"/>
+  <group ns="camera1">
+  <node pkg="nodelet" type="nodelet" name="libuvc_camera" args="load libuvc_camera/driver /nodelet_manager" output="screen">
+    <param name="frame_id" value="base_camera" />
+    
+    <!-- Parameters used to find the camera -->
+    <param name="index" value="2"/>
+    <!-- Image size and type -->
+    <param name="width" value="1280"/>
+    <param name="height" value="720"/>
+    <param name="video_mode" value="mjpeg"/>
+    <param name="frame_rate" value="15"/>
+
+
+    </node>
+    </group>
+    <group ns="camera2">
+    <node pkg="nodelet" type="nodelet" name="libuvc_camera2" args="load libuvc_camera/driver /nodelet_manager" output="screen">
+    <param name="frame_id" value="arm_camera" />
+    
+    <!-- Parameters used to find the camera -->
+    <param name="index" value="1"/>
+    <!-- Image size and type -->
+    <param name="width" value="1280"/>
+    <param name="height" value="720"/>
+    <param name="video_mode" value="mjpeg "/>
+    <param name="frame_rate" value="15"/>
+
+
+    </node>
+    </group>
+   
+
+
+</launch>
