@@ -1,0 +1,19 @@
+This is the code for STM32 nucleo-64.
+To run this programme first you need to do some minor tweaks in your arduino ide.
+
+Perform the following steps:-
+
+1. Open arduino ide, open preferences by (Ctrl + ","). Now add this url "https://raw.githubusercontent.com/stm32duino/BoardManagerFiles/master/STM32/package_stm_index.json",
+in the additional board manager URLs. Click on OK. Now restart the arduino ide.
+
+2. Go to tools >> boards >> boards manager, search for stm32 MCU boards by STMicroelectronics and install it, make sure you have an active internet connection.
+  (It might not work in Bits Wifi, try using your mobile hotspot)
+
+3. Now to test if the board has been added to your arduino ide correctly, plug in the stm nucleo to your system, and open the blink example of the arduino ide.
+  From the planes tab choose the appropriate board, in our case it is Nucleo-64 F401RE
+
+4. Select the appropriate com port and hit upload, the status led of the stm32 nucleo board must change it's stqate from red to blinking red and green. Once the code uploads successfully
+you will see the on board led blinking which is connected on PA5.
+
+
+Now upload the stm_ros_node code to the stm32 and make the required electrial connections, which includes connecting the RKI to the digital and PWM pins of the STm32 as per the code.
